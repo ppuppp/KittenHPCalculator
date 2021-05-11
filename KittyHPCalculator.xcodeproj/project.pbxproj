@@ -11,6 +11,7 @@
 		75B02191264B0F40001BE78E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B02190264B0F40001BE78E /* ContentView.swift */; };
 		75B02193264B0F43001BE78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B02192264B0F43001BE78E /* Assets.xcassets */; };
 		75B02196264B0F43001BE78E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B02195264B0F43001BE78E /* Preview Assets.xcassets */; };
+		75B0219E264B159E001BE78E /* CatzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0219D264B159E001BE78E /* CatzView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		75B02192264B0F43001BE78E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75B02195264B0F43001BE78E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		75B02197264B0F43001BE78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75B0219D264B159E001BE78E /* CatzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatzView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				75B0218E264B0F40001BE78E /* KittyHPCalculatorApp.swift */,
 				75B02190264B0F40001BE78E /* ContentView.swift */,
+				75B0219D264B159E001BE78E /* CatzView.swift */,
 				75B02192264B0F43001BE78E /* Assets.xcassets */,
 				75B02197264B0F43001BE78E /* Info.plist */,
 				75B02194264B0F43001BE78E /* Preview Content */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B02191264B0F40001BE78E /* ContentView.swift in Sources */,
+				75B0219E264B159E001BE78E /* CatzView.swift in Sources */,
 				75B0218F264B0F40001BE78E /* KittyHPCalculatorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +273,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KittyHPCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = C7K95G5W2H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KittyHPCalculator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -290,6 +295,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KittyHPCalculator/Preview Content\"";
+				DEVELOPMENT_TEAM = C7K95G5W2H;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KittyHPCalculator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
