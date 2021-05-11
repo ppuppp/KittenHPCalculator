@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+
     
     
     @State var isShowingCatzView = false
@@ -27,23 +28,23 @@ struct ContentView: View {
              
                 
             Spacer()
-            Text("String qualquer")
+            Text("Seja bem vindo a calculadora para calcular o HP do seu felino, clique em iniciar para começar o cálculo").multilineTextAlignment(.center).padding()
             Spacer()
             
             
             
             ZStack {
                 
-                Rectangle().foregroundColor(.blue)
+                Rectangle().foregroundColor(.purple)
                 NavigationLink(destination: CatzView()){
                     
                     Text("Iniciar")
                     
                 }
-                .background(Color.blue)
+                .background(Color.purple)
                 .foregroundColor(.white)
                 .font(.largeTitle)
-               
+            
                 
                 
                 
@@ -54,6 +55,7 @@ struct ContentView: View {
             
         }.background(Color.white)
         .navigationBarTitle("Kitty HP Calculator", displayMode: .inline)
+      
             
         }
         
