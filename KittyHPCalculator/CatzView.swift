@@ -8,7 +8,6 @@
 import SwiftUI
 
 
-
 struct CatzView: View {
     
     @State var kittenName: String = ""
@@ -17,6 +16,8 @@ struct CatzView: View {
     @State var toggledButton2 = false
     @State var toggledButton3 = false
     @State var toggledButton4 = false
+    
+    
     
     var body: some View {
         
@@ -76,24 +77,24 @@ struct CatzView: View {
                       
                         
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton1 ? Color.black : Color.purple)
-                            .cornerRadius(50)
+                            .foregroundColor(toggledButton1 ? Color.selectedOrange : Color.strongerOrange)
+                            .cornerRadius(15)
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton2 ? Color.black : Color.purple)
+                            .foregroundColor(toggledButton2 ? Color.selectedOrange : Color.strongerOrange)
                             
-                            .cornerRadius(50)
+                            .cornerRadius(15)
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton3 ? Color.black : Color.purple)
-                            .cornerRadius(50)
+                            .foregroundColor(toggledButton3 ? Color.selectedOrange : Color.strongerOrange)
+                            .cornerRadius(15)
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton4 ? Color.black : Color.purple)
-                            .cornerRadius(50)
+                            .foregroundColor(toggledButton4 ? Color.selectedOrange : Color.strongerOrange)
+                            .cornerRadius(15)
                         
                         
                     }
                     
                     
-                }.shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/).frame(maxHeight:300)
+                }.shadow(color: Color.black.opacity(0.2), radius: 15.0)
                 
             
                 HStack{
@@ -106,7 +107,7 @@ struct CatzView: View {
                     VStack{
                         
                      
-                        Button("🐱Mage 🔮"){
+                        Button("⚛︎ Mage ⚛︎"){
                             
                             self.toggledButton1.toggle()
                             
@@ -119,7 +120,7 @@ struct CatzView: View {
                         
                             Spacer().frame(maxHeight:20)
                         
-                        Button("🐱Cleric ✝️"){
+                        Button("♰ Cleric ♰"){
                             self.toggledButton2.toggle()
                             }
                         .foregroundColor(.white)
@@ -130,7 +131,7 @@ struct CatzView: View {
                             Spacer().frame(maxHeight:20)
                        
                        
-                        Button("🐱Paladin🛡"){
+                        Button("⚔︎ Paladin ⚔︎"){
                             
                             self.toggledButton3.toggle()
                             
@@ -138,11 +139,11 @@ struct CatzView: View {
                         .foregroundColor(.white)
                         .font(.title)
                         .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 20)
+                        .padding(.leading, 10)
                         
                         Spacer().frame(maxHeight:20)
                      
-                        Button("🐱Tanker🦾 "){
+                        Button("⚒︎ Tanker ⚒︎"){
                            
                             self.toggledButton4.toggle()
                         
@@ -150,7 +151,7 @@ struct CatzView: View {
                         .foregroundColor(.white)
                         .font(.title)
                         .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 20)
+                        .padding(.leading, 10)
                         
                         
     }
@@ -182,7 +183,7 @@ struct CatzView: View {
                         
                         Text("\($0)").font(.headline)
                         
-                    }.foregroundColor(.purple)
+                    }.foregroundColor(.strongerOrange)
                     
                 
                     
@@ -197,18 +198,23 @@ struct CatzView: View {
             ZStack{
                 
                 Rectangle().frame(maxWidth:350, maxHeight: 50)
-                    .foregroundColor(.purple)
+                    .foregroundColor(.mainOrange)
                     .cornerRadius(15)
                 
                 
                 VStack{
                     
-                    Button("Next"){
+                    
+                    
+                    NavigationLink(destination: generalBehaviourView()){
                         
+                        Text("Next").padding(.bottom, 4)
                         
-                    }.background(Color.purple)
+                }
+                    .background(Color.mainOrange)
                     .foregroundColor(.white)
-                    .font(.headline)
+                    .font(.title2)
+                    .frame(minWidth:350, minHeight: 50)
                     
                     
                     

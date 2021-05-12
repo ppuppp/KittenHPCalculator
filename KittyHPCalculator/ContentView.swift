@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+
+extension Color {
+    static let strongerOrange = Color(red: 234 / 255, green: 148 / 255, blue: 106 / 255)
+    static let mainOrange = Color(red: 244 / 255, green: 179 / 255, blue: 147 / 255)
+    static let selectedOrange = Color(red: 243 / 255, green: 153 / 255, blue: 153 / 255)
+    
+}
+
 struct ContentView: View {
 
     
@@ -26,7 +34,7 @@ struct ContentView: View {
                Spacer()
            
              
-           Image("kittylogo")
+           Image("kittyorange")
            
             Spacer().frame(maxHeight: 170)
             
@@ -36,14 +44,14 @@ struct ContentView: View {
                 
                 
                 Rectangle().frame(maxWidth:350, maxHeight: 50)
-                    .foregroundColor(.purple)
+                    .foregroundColor(.mainOrange)
                     .cornerRadius(15)
                 NavigationLink(destination: CatzView()){
                     
                     Text("meow").padding(.bottom, 4)
                     
             }
-                .background(Color.purple)
+                .background(Color.mainOrange)
                 .foregroundColor(.white)
                 .font(.title2)
                 .frame(minWidth:350, minHeight: 50)
