@@ -12,49 +12,82 @@ import SwiftUI
 struct CatzView: View {
     
     @State var kittenName: String = ""
-    
+    @State var number = 1
+    @State var toggledButton1 = false
+    @State var toggledButton2 = false
+    @State var toggledButton3 = false
+    @State var toggledButton4 = false
     
     var body: some View {
         
         
         VStack{
             
+            ZStack{
             
-            Spacer().frame(maxHeight:40)
-            TextField("Your kitten name:", text: $kittenName).padding(.leading, 40).background(Color.clear)
-            Spacer().frame(maxHeight: 60)
-            Text("Choose a Kitten Class:").foregroundColor(.white).background(Color.black).font(.headline)
+                
+                
+                
+                VStack{
             
            
-            Spacer().frame(maxHeight:5)
+                    TextField("Your cat's name:", text: $kittenName)
+                        .frame(width: 200, height: 50, alignment:.center)
+                        .background(Color.clear)
+                        .font(.headline).textCase(.lowercase)
+                        .foregroundColor(.black)
+                        .multilineTextAlignment(.center)
+                    
+            
+            
+           
+          
+                
+            }.frame(width: 350, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                
+                
+                Rectangle().frame(width: 250, height: 1, alignment:.center)
+                    .foregroundColor(.gray)
+                    .padding(.top, 30)
+                
+            }
+            
+            Spacer().frame(maxHeight: 10)
          
             
             
+
+            Text("Choose a Kitten Class:").foregroundColor(.black).font(.headline)
+            
+            
             ZStack{
+            
                 
                 HStack{
                     
                     
-                   
                     
                     
-                    
+                
+                        
+                        
                     VStack{
                      
+                      
                         
-                        
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(.purple)
-                            .cornerRadius(10)
+                            .foregroundColor(toggledButton1 ? Color.black : Color.purple)
+                            .cornerRadius(50)
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(.purple)
-                            .cornerRadius(10)
+                            .foregroundColor(toggledButton2 ? Color.black : Color.purple)
+                            
+                            .cornerRadius(50)
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(.purple)
-                            .cornerRadius(10)
+                            .foregroundColor(toggledButton3 ? Color.black : Color.purple)
+                            .cornerRadius(50)
                         Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(.purple)
-                            .cornerRadius(10)
+                            .foregroundColor(toggledButton4 ? Color.black : Color.purple)
+                            .cornerRadius(50)
                         
                         
                     }
@@ -73,40 +106,51 @@ struct CatzView: View {
                     VStack{
                         
                      
-                        Button("Mage 🔮"){
-                        }.background(Color.purple)
+                        Button("🐱Mage 🔮"){
+                            
+                            self.toggledButton1.toggle()
+                            
+                        
+                            }
                         .foregroundColor(.white)
                         .font(.title)
                         .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 35)
+                    
                         
-                            Spacer().frame(maxHeight:15)
+                            Spacer().frame(maxHeight:20)
                         
-                        Button("Cleric ✝️"){
-                            }.background(Color.purple)
+                        Button("🐱Cleric ✝️"){
+                            self.toggledButton2.toggle()
+                            }
                         .foregroundColor(.white)
                         .font(.title)
                         .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 35)
+                   
                         
-                            Spacer().frame(maxHeight:15)
+                            Spacer().frame(maxHeight:20)
                        
                        
-                        Button("Paladin🛡"){
-                            }.background(Color.purple)
+                        Button("🐱Paladin🛡"){
+                            
+                            self.toggledButton3.toggle()
+                            
+                            }
                         .foregroundColor(.white)
                         .font(.title)
                         .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 35)
+                        .padding(.leading, 20)
                         
-                        Spacer().frame(maxHeight:15)
+                        Spacer().frame(maxHeight:20)
                      
-                        Button("Tanker 🦾 "){
-                            }.background(Color.purple)
+                        Button("🐱Tanker🦾 "){
+                           
+                            self.toggledButton4.toggle()
+                        
+                        }
                         .foregroundColor(.white)
                         .font(.title)
                         .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 35)
+                        .padding(.leading, 20)
                         
                         
     }
@@ -122,16 +166,69 @@ struct CatzView: View {
                 
                
                 
+            }.frame(maxHeight: 270)
+            
+            
+            VStack{
+                
+                
+                
+                Spacer().frame(maxHeight: 30)
+               
+                Text("The age of your cat: \(number)").font(.headline)
+                Picker("", selection: $number) {
+                    
+                    ForEach(1...20, id:\.self) {
+                        
+                        Text("\($0)").font(.headline)
+                        
+                    }.foregroundColor(.purple)
+                    
+                
+                    
+                    
+                }
+                    
+                Spacer().frame(maxHeight:70)
+              
+                
             }
             
+            ZStack{
+                
+                Rectangle().frame(maxWidth:350, maxHeight: 50)
+                    .foregroundColor(.purple)
+                    .cornerRadius(15)
+                
+                
+                VStack{
+                    
+                    Button("Next"){
+                        
+                        
+                    }.background(Color.purple)
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    
+                    
+                    
+                }
+                    
+                    
+                    
+                    
+                }
+                
+            
+           
             
             
-         
-            
-            Spacer()
-            Spacer()
-            
-        }.padding(.top, 50).frame(maxWidth: 380)
+        }.padding(.top, 40).frame(maxWidth: 380)
+        
+        
+        
+        
+        
     }
 }
 

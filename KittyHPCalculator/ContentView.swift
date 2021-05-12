@@ -23,41 +23,46 @@ struct ContentView: View {
         VStack{
                 
             
-                
+               Spacer()
            
              
-                
-            Spacer()
-            Text("Seja bem vindo a calculadora para calcular o HP do seu felino, clique em iniciar para começar o cálculo").multilineTextAlignment(.center).padding()
-            Spacer()
+           Image("kittylogo")
+           
+            Spacer().frame(maxHeight: 170)
             
             
             
             ZStack {
                 
-                Rectangle().foregroundColor(.purple)
+                
+                Rectangle().frame(maxWidth:350, maxHeight: 50)
+                    .foregroundColor(.purple)
+                    .cornerRadius(15)
                 NavigationLink(destination: CatzView()){
                     
-                    Text("Iniciar")
+                    Text("meow").padding(.bottom, 4)
                     
-                }
+            }
                 .background(Color.purple)
                 .foregroundColor(.white)
-                .font(.largeTitle)
+                .font(.title2)
+                .frame(minWidth:350, minHeight: 50)
             
                 
                 
                 
-            }.cornerRadius(30).padding(.bottom, 25).frame(width:200, height:80 )
+            }.cornerRadius(15).frame(width:360, height:50)
+            
             
             
            
             
         }.background(Color.white)
-        .navigationBarTitle("Kitty HP Calculator", displayMode: .inline)
+        .navigationBarTitle("Cat HP Calculator", displayMode: .inline)
+        
       
             
-        }
+        }.frame(maxHeight: 800)
         
         
         
