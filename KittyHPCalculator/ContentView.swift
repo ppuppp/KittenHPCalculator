@@ -9,8 +9,8 @@ import SwiftUI
 
 
 extension Color {
-    static let strongerOrange = Color(red: 234 / 255, green: 148 / 255, blue: 106 / 255)
-    static let mainOrange = Color(red: 244 / 255, green: 179 / 255, blue: 147 / 255)
+    static let strongerOrange = Color(red: 255 / 255, green: 172 / 255, blue: 75 / 255)
+    static let mainOrange = Color(red: 255 / 255, green: 196 / 255, blue: 128 / 255)
     static let selectedOrange = Color(red: 243 / 255, green: 153 / 255, blue: 153 / 255)
     
 }
@@ -34,7 +34,7 @@ struct ContentView: View {
                Spacer()
            
              
-           Image("kittyorange")
+           Image("kittyHome")
            
             Spacer().frame(maxHeight: 170)
             

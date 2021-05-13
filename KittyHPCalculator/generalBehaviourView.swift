@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+public protocol ToggleStyle {
+    associatedtype Body : View
+
+    func makeBody(configuration: Self.Configuration) -> Self.Body
+
+    typealias Configuration = ToggleStyleConfiguration
+}
 
 struct generalBehaviourView: View {
     
@@ -18,14 +25,36 @@ struct generalBehaviourView: View {
     @State private var vocalList2 = false
     @State private var vocalList3 = false
     @State private var vocalList4 = false
-
+    
+    
+    @State var classList = [ "⚛︎ Mage ⚛︎", "♰ Cleric ♰", "⚔︎ Paladin ⚔︎", "⚒︎ Tanker ⚒︎"]
+    @State var feedingList = [ "⚛︎ Mage ⚛︎", "♰ Cleric ♰", "⚔︎ Paladin ⚔︎", "⚒︎ Tanker ⚒︎"]
+    
+    @State var feedingBehaviours = [GeneralBehaviour(label: "Eats normal cat food", status: false, weight: 1),
+                             GeneralBehaviour(label: "Hunts insects", status: false, weight: 2),
+                             GeneralBehaviour(label: "Hunts birds", status: false, weight: 2),
+                             GeneralBehaviour(label: "Scavenging for food", status: false, weight: 1)]
+    
+    @State var vocalizationBehaviours = [GeneralBehaviour(label: "Meow to ask food", status: false, weight: 1),
+                                         GeneralBehaviour(label: "Meow when hunting", status: false, weight: 2),
+                                         GeneralBehaviour(label: "Meow when sleeping", status: false, weight: 2),
+                                         GeneralBehaviour(label: "Funny or weird vocalizations", status: false, weight: 1)]
+    
+    
+    
+    func calculateGeneralScore() {
+        
+        let feedingScore = feedingBehaviours.filter({$0.status}).map({ 1 * $0.weight }).reduce(0, +)
+        
+        let vocalizationScore = vocalizationBehaviours.filter({$0.status}).map({ 1 * $0.weight }).reduce(0, +)
+        
+        print(feedingScore + vocalizationScore)
+        
+        
+    }
     
     var body: some View {
        
-        
-        
-        
-        
         
         
         VStack {
@@ -34,68 +63,72 @@ struct generalBehaviourView: View {
             Text("Toggle the behaviours your cat does:").font(.title3).bold()
             
             Spacer().frame(maxHeight:30)
-            List{
-                Section(header: HStack {
-                    Text("Feeding")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxHeight: 30)
+//
+            
+            List {
+                Section(header:
+                    HStack {
+                        Text("Feeding")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxHeight: 30)
 
                         Spacer()
+                        
+                       
+                     }.background(Color.mainOrange)
+                     .listRowInsets(EdgeInsets(
+                        top: 0,
+                        leading: 0,
+                        bottom: 0,
+                        trailing: 0))
+                    ){
+                    ForEach(feedingBehaviours.indices){index in
+                        
+                        Toggle(self.feedingBehaviours[index].label, isOn: self.$feedingBehaviours[index].status)
+                            .font(.body)
+                            .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
+                            .frame(minHeight: 50)
+                        
+                    }
+                        
                 }
-                .background(Color.mainOrange)
-                .listRowInsets(EdgeInsets(
-                    top: 0,
-                    leading: 0,
-                    bottom: 0,
-                    trailing: 0))
-                ) {
-                Toggle("Eats normal cat food", isOn: $feedingList1).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-           
+            }.frame(maxWidth: 400, maxHeight: 280)
             
-                Toggle("Hunts insects", isOn: $feedingList2).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-            
-         
-            
-                Toggle("Hunts birds", isOn: $feedingList3).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-           
-                Toggle("Scavenging for food", isOn: $feedingList4).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-           
+            List {
+                Section(header:
+                    HStack {
+                        Text("Vocalizations")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(maxHeight: 30)
+
+                        Spacer()
+                        
+                       
+                     }.background(Color.mainOrange)
+                     .listRowInsets(EdgeInsets(
+                        top: 0,
+                        leading: 0,
+                        bottom: 0,
+                        trailing: 0))
+                    ){
+                    ForEach(vocalizationBehaviours.indices){index in
+                        
+                        Toggle(self.vocalizationBehaviours[index].label, isOn: self.$vocalizationBehaviours[index].status)
+                            .font(.body)
+                            .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
+                            .frame(minHeight: 50)
+                        
+                    }
+                        
                 }
             }.frame(maxWidth: 400, maxHeight: 280)
             
             
-            List{
-                Section(header: HStack {
-                    Text("Vocalizations")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxHeight: 30)
-
-                        Spacer()
-                }
-                .background(Color.mainOrange)
-                .listRowInsets(EdgeInsets(
-                    top: 0,
-                    leading: 0,
-                    bottom: 0,
-                    trailing: 0))
-                ) {
-                Toggle("Meow to ask for food", isOn: $vocalList1).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-           
             
-                Toggle("Meow when hunting", isOn: $vocalList2).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-                    
-                Toggle("Meow when sleeping", isOn: $vocalList3).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-                    
-                Toggle("Funny or weird vocalizations", isOn: $vocalList4).font(.body).toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange)).frame(minHeight: 50)
-                    
-                    }
-                
-                
-            }.frame(maxWidth: 400)
             
             ZStack {
                
@@ -104,15 +137,25 @@ struct generalBehaviourView: View {
                     .foregroundColor(.mainOrange)
                     .cornerRadius(15)
                 
-                NavigationLink(destination: LoadingView()){
+//                NavigationLink(destination: LoadingView()){
+//
+//                    Text("Next").padding(.bottom, 4)
+//
+//            }
+//                .background(Color.mainOrange)
+//                .foregroundColor(.white)
+//                .font(.title2)
+//                .frame(minWidth:350, minHeight: 50)
+                
+                Button(action: {
+                        
+                    calculateGeneralScore()
                     
-                    Text("Next").padding(.bottom, 4)
                     
-            }
-                .background(Color.mainOrange)
-                .foregroundColor(.white)
-                .font(.title2)
-                .frame(minWidth:350, minHeight: 50)
+                }, label: {
+                    Text("Calculate").foregroundColor(.white).frame(minWidth:300, minHeight: 50)
+                })
+                
                 
                 
             }
@@ -130,8 +173,26 @@ struct generalBehaviourView: View {
     }
 }
 
+
+
 struct generalBehaviourView_Previews: PreviewProvider {
     static var previews: some View {
         generalBehaviourView()
     }
+}
+
+
+class GeneralBehaviour: Identifiable {
+    
+    let label: String
+    var status: Bool
+    let id = UUID()
+    let weight: Int
+    
+    internal init(label: String, status: Bool, weight: Int) {
+        self.label = label
+        self.status = status
+        self.weight = weight
+    }
+    
 }

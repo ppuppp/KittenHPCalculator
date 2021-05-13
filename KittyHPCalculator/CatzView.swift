@@ -16,7 +16,7 @@ struct CatzView: View {
     @State var toggledButton2 = false
     @State var toggledButton3 = false
     @State var toggledButton4 = false
-    
+    @State var classList = [ "⚛︎ Mage ⚛︎", "♰ Cleric ♰", "⚔︎ Paladin ⚔︎", "⚒︎ Tanker ⚒︎"]
     
     
     var body: some View {
@@ -26,9 +26,6 @@ struct CatzView: View {
             
             ZStack{
             
-                
-                
-                
                 VStack{
             
            
@@ -39,140 +36,66 @@ struct CatzView: View {
                         .foregroundColor(.black)
                         .multilineTextAlignment(.center)
                     
-            
-            
-           
-          
-                
             }.frame(width: 350, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 
                 
                 Rectangle().frame(width: 250, height: 1, alignment:.center)
                     .foregroundColor(.gray)
                     .padding(.top, 30)
-                
-            }
+                }
             
             Spacer().frame(maxHeight: 10)
-         
-            
-            
-
             Text("Choose a Kitten Class:").foregroundColor(.black).font(.headline)
             
             
             ZStack{
             
-                
                 HStack{
                     
-                    
-                    
-                    
-                
-                        
-                        
                     VStack{
                      
-                      
-                        
-                        Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton1 ? Color.selectedOrange : Color.strongerOrange)
-                            .cornerRadius(15)
-                        Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton2 ? Color.selectedOrange : Color.strongerOrange)
+                      ForEach(classList, id:\.self){
                             
-                            .cornerRadius(15)
-                        Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton3 ? Color.selectedOrange : Color.strongerOrange)
-                            .cornerRadius(15)
-                        Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                            .foregroundColor(toggledButton4 ? Color.selectedOrange : Color.strongerOrange)
-                            .cornerRadius(15)
+                            clas in
+                            return Rectangle().frame(maxWidth: 300, maxHeight: 50)
+                                .foregroundColor(toggledButton1 ? Color.selectedOrange : Color.strongerOrange)
+                                .cornerRadius(15)
+                            
+                                }
                         
                         
-                    }
+                            }
                     
-                    
-                }.shadow(color: Color.black.opacity(0.2), radius: 15.0)
+                    }.shadow(color: Color.black.opacity(0.2), radius: 15.0)
                 
-            
-                HStack{
-                    
-                    
-           
-                    
-              
+            HStack{
                     
                     VStack{
                         
-                     
-                        Button("⚛︎ Mage ⚛︎"){
+                        
+                        ForEach(classList, id:\.self){
                             
-                            self.toggledButton1.toggle()
-                            
-                        
-                            }
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .frame(minWidth:300, minHeight: 50)
-                    
-                        
-                            Spacer().frame(maxHeight:20)
-                        
-                        Button("♰ Cleric ♰"){
-                            self.toggledButton2.toggle()
-                            }
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .frame(minWidth:300, minHeight: 50)
-                   
-                        
-                            Spacer().frame(maxHeight:20)
-                       
-                       
-                        Button("⚔︎ Paladin ⚔︎"){
-                            
-                            self.toggledButton3.toggle()
+                            clas in
+                            return Button(clas){
+                                
+                                
+                                
+                                
+                            }.foregroundColor(.white)
+                            .font(.title)
+                            .frame(minWidth:300, maxHeight: 50)
+                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 8)
                             
                             }
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 10)
-                        
-                        Spacer().frame(maxHeight:20)
-                     
-                        Button("⚒︎ Tanker ⚒︎"){
-                           
-                            self.toggledButton4.toggle()
-                        
+
                         }
-                        .foregroundColor(.white)
-                        .font(.title)
-                        .frame(minWidth:300, minHeight: 50)
-                        .padding(.leading, 10)
-                        
-                        
-    }
                     
-                    
-                    
-                    
-                    
-                    
-                   
-                    
-                }.frame(maxWidth:400, maxHeight: 200)
+                    }.frame(maxWidth:400, maxHeight: 200)
                 
-               
-                
-            }.frame(maxHeight: 270)
+               }.frame(maxHeight: 270)
             
             
             VStack{
-                
-                
                 
                 Spacer().frame(maxHeight: 30)
                
@@ -183,17 +106,13 @@ struct CatzView: View {
                         
                         Text("\($0)").font(.headline)
                         
-                    }.foregroundColor(.strongerOrange)
+                            }.foregroundColor(.strongerOrange)
                     
-                
-                    
-                    
-                }
+                        }
                     
                 Spacer().frame(maxHeight:70)
               
-                
-            }
+                }
             
             ZStack{
                 
@@ -201,14 +120,11 @@ struct CatzView: View {
                     .foregroundColor(.mainOrange)
                     .cornerRadius(15)
                 
-                
-                VStack{
-                    
-                    
+            VStack{
                     
                     NavigationLink(destination: generalBehaviourView()){
                         
-                        Text("Next").padding(.bottom, 4)
+                        Text("Next").padding(.bottom, 4).frame(minWidth:300, minHeight: 50)
                         
                 }
                     .background(Color.mainOrange)
@@ -218,12 +134,9 @@ struct CatzView: View {
                     
                     
                     
-                }
+                    }
                     
-                    
-                    
-                    
-                }
+                  }
                 
             
            
