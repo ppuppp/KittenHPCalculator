@@ -14,6 +14,7 @@
 		75B02193264B0F43001BE78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B02192264B0F43001BE78E /* Assets.xcassets */; };
 		75B02196264B0F43001BE78E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B02195264B0F43001BE78E /* Preview Assets.xcassets */; };
 		75B0219E264B159E001BE78E /* CatzView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0219D264B159E001BE78E /* CatzView.swift */; };
+		75B324F0264EA2100074F017 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B324EF264EA2100074F017 /* Math.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		75B02195264B0F43001BE78E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		75B02197264B0F43001BE78E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75B0219D264B159E001BE78E /* CatzView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatzView.swift; sourceTree = "<group>"; };
+		75B324EF264EA2100074F017 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				75B0219D264B159E001BE78E /* CatzView.swift */,
 				7508980B264B9B8D004E13D4 /* LoadingView.swift */,
 				7508980D264C22FD004E13D4 /* generalBehaviourView.swift */,
+				75B324EF264EA2100074F017 /* Math.swift */,
 				75B02192264B0F43001BE78E /* Assets.xcassets */,
 				75B02197264B0F43001BE78E /* Info.plist */,
 				75B02194264B0F43001BE78E /* Preview Content */,
@@ -152,6 +155,7 @@
 				7508980E264C22FD004E13D4 /* generalBehaviourView.swift in Sources */,
 				75B0219E264B159E001BE78E /* CatzView.swift in Sources */,
 				75B0218F264B0F40001BE78E /* KittyHPCalculatorApp.swift in Sources */,
+				75B324F0264EA2100074F017 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

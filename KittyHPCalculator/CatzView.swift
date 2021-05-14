@@ -12,11 +12,9 @@ struct CatzView: View {
     
     @State var kittenName: String = ""
     @State var number = 1
-    @State var toggledButton1 = false
-    @State var toggledButton2 = false
-    @State var toggledButton3 = false
-    @State var toggledButton4 = false
-    @State var classList = [ "⚛︎ Mage ⚛︎", "♰ Cleric ♰", "⚔︎ Paladin ⚔︎", "⚒︎ Tanker ⚒︎"]
+    @State var tap = false
+    @State var currentTapped: String?
+    @State var classList = [ "⚛︎ Mage ⚛︎", "♰ Cleric ♰", "⚔︎ Paladin ⚔︎", "⚒︎ Tanker ⚒︎",]
     
     
     var body: some View {
@@ -24,125 +22,152 @@ struct CatzView: View {
         
         VStack{
             
-            ZStack{
+            VStack{
+                
+                
+                TextField("Your cat's name:", text: $kittenName)
+                    .frame(width: 200, height: 10, alignment:.center)
+                    .background(Color.clear)
+                    .font(.headline).textCase(.lowercase)
+                    .foregroundColor(.black)
+                    .multilineTextAlignment(.center)
+                
+                Rectangle().frame( height: 1, alignment:.center)
+                    .foregroundColor(.gray).padding(.leading, 30).padding(.trailing, 30)
+                
+            }
             
-                VStack{
             
-           
-                    TextField("Your cat's name:", text: $kittenName)
-                        .frame(width: 200, height: 50, alignment:.center)
-                        .background(Color.clear)
-                        .font(.headline).textCase(.lowercase)
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.center)
+            
+            
+            VStack{
+                Text("Choose a Kitten Class:").foregroundColor(.black).font(.headline)
+                
+                Spacer()
+                //for each dentro da VSTACK
+                
+                // ZSTack dentro do for each
+                
+                // ZSTack vai conter 01 retangulo  e um texto
+                
+                ForEach(classList, id: \.self){ classType in
                     
-            }.frame(width: 350, height: 60, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                
-                
-                Rectangle().frame(width: 250, height: 1, alignment:.center)
-                    .foregroundColor(.gray)
-                    .padding(.top, 30)
+                    
+                    
+                    if classType == currentTapped {
+                        
+                        
+                        Button(action: {
+                            
+                            currentTapped = nil
+                            
+                            
+                            
+                        }, label: {
+                            ZStack{
+                                
+                                Rectangle().foregroundColor(.selectedOrange).cornerRadius(15)
+                                Text(classType).foregroundColor(.white).font(.title2)
+                                
+                                
+                                
+                                
+                            }
+                        })
+                        
+                        
+                    } else{
+                        
+                        
+                        
+                        
+                        Button(action: {
+                            
+                            currentTapped = classType
+                            
+                            
+                        }, label: {
+                            ZStack{
+                                
+                                Rectangle().foregroundColor(.mainOrange).cornerRadius(15)
+                                Text(classType).foregroundColor(.white).font(.title2)
+                                
+                                
+                                
+                                
+                            }
+                        })
+                        
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
                 }
-            
-            Spacer().frame(maxHeight: 10)
-            Text("Choose a Kitten Class:").foregroundColor(.black).font(.headline)
-            
-            
-            ZStack{
-            
-                HStack{
-                    
-                    VStack{
-                     
-                      ForEach(classList, id:\.self){
-                            
-                            clas in
-                            return Rectangle().frame(maxWidth: 300, maxHeight: 50)
-                                .foregroundColor(toggledButton1 ? Color.selectedOrange : Color.strongerOrange)
-                                .cornerRadius(15)
-                            
-                                }
-                        
-                        
-                            }
-                    
-                    }.shadow(color: Color.black.opacity(0.2), radius: 15.0)
                 
-            HStack{
-                    
-                    VStack{
-                        
-                        
-                        ForEach(classList, id:\.self){
-                            
-                            clas in
-                            return Button(clas){
-                                
-                                
-                                
-                                
-                            }.foregroundColor(.white)
-                            .font(.title)
-                            .frame(minWidth:300, maxHeight: 50)
-                            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 8)
-                            
-                            }
-
-                        }
-                    
-                    }.frame(maxWidth:400, maxHeight: 200)
                 
-               }.frame(maxHeight: 270)
+                
+                
+                
+                
+            }.padding().padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            
             
             
             VStack{
                 
-                Spacer().frame(maxHeight: 30)
-               
-                Text("The age of your cat: \(number)").font(.headline)
+                
+                
+                Text("The age of your cat:").font(.headline)
                 Picker("", selection: $number) {
                     
                     ForEach(1...20, id:\.self) {
                         
                         Text("\($0)").font(.headline)
                         
-                            }.foregroundColor(.strongerOrange)
+                    }.foregroundColor(.strongerOrange)
                     
-                        }
-                    
-                Spacer().frame(maxHeight:70)
-              
                 }
+                
+                
+                
+            }
+            
+            
             
             ZStack{
                 
-                Rectangle().frame(maxWidth:350, maxHeight: 50)
+                
+                Rectangle()
                     .foregroundColor(.mainOrange)
                     .cornerRadius(15)
+                   
                 
-            VStack{
+                VStack{
                     
                     NavigationLink(destination: generalBehaviourView()){
                         
-                        Text("Next").padding(.bottom, 4).frame(minWidth:300, minHeight: 50)
+                        Text("Next")
                         
-                }
+                    }
                     .background(Color.mainOrange)
                     .foregroundColor(.white)
                     .font(.title2)
-                    .frame(minWidth:350, minHeight: 50)
                     
                     
                     
-                    }
                     
-                  }
+                }
                 
+            }.frame(maxHeight: 50)
             
-           
             
             
-        }.padding(.top, 40).frame(maxWidth: 380)
+            
+            
+        }.padding()
         
         
         
@@ -156,3 +181,7 @@ struct CatzView_Previews: PreviewProvider {
         CatzView()
     }
 }
+
+
+
+

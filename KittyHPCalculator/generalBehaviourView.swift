@@ -35,6 +35,9 @@ struct generalBehaviourView: View {
                              GeneralBehaviour(label: "Hunts birds", status: false, weight: 2),
                              GeneralBehaviour(label: "Scavenging for food", status: false, weight: 1)]
     
+    
+    
+    
     @State var vocalizationBehaviours = [GeneralBehaviour(label: "Meow to ask food", status: false, weight: 1),
                                          GeneralBehaviour(label: "Meow when hunting", status: false, weight: 2),
                                          GeneralBehaviour(label: "Meow when sleeping", status: false, weight: 2),
@@ -164,7 +167,7 @@ struct generalBehaviourView: View {
         
         
     
-    
+        
     
     
     
@@ -182,17 +185,17 @@ struct generalBehaviourView_Previews: PreviewProvider {
 }
 
 
-class GeneralBehaviour: Identifiable {
-    
-    let label: String
-    var status: Bool
-    let id = UUID()
-    let weight: Int
-    
-    internal init(label: String, status: Bool, weight: Int) {
-        self.label = label
-        self.status = status
-        self.weight = weight
-    }
-    
-}
+//class GeneralBehaviour: Identifiable {
+//    
+//    let label: String
+//    var status: Bool
+//    let id = UUID()
+//    let weight: Int
+//    
+//    internal init(label: String, status: Bool, weight: Int) {
+//        self.label = label
+//        self.status = status
+//        self.weight = weight
+//    }
+//    
+//}

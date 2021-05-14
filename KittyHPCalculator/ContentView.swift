@@ -16,86 +16,90 @@ extension Color {
 }
 
 struct ContentView: View {
-
-    
     
     @State var isShowingCatzView = false
-    
-    
     
     
     var body: some View {
         
         NavigationView{
-        
-        VStack{
+            
+            VStack{
                 
-            
-               Spacer()
-           
-             
-           Image("kittyHome")
-           
-            Spacer().frame(maxHeight: 170)
-            
-            
-            
-            ZStack {
-                
-                
-                Rectangle().frame(maxWidth:350, maxHeight: 50)
-                    .foregroundColor(.mainOrange)
-                    .cornerRadius(15)
-                NavigationLink(destination: CatzView()){
+                VStack{
                     
-                    Text("meow").padding(.bottom, 4)
+                    Group{
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                    }
                     
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                    Image("kittyHome")
+                    
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    
+                    
+                }
+                
+                
+                VStack {
+                    
+                    
+                    
+                    Group{
+                        
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        
+                    }
+                    
+                    
+                    
+                    NavigationLink(destination: CatzView()){
+                        
+                        ZStack{
+                            
+                            Rectangle().foregroundColor(.mainOrange).cornerRadius(15)
+                            Text("Meow").foregroundColor(.white).font(.title2)
+                            
+                        }.frame(maxHeight: 50)
+                        
+                    }.padding(.top, 10).padding(.leading, 10).padding(.trailing, 10)
+                    
+                }
+                
+                
+                
             }
-                .background(Color.mainOrange)
-                .foregroundColor(.white)
-                .font(.title2)
-                .frame(minWidth:350, minHeight: 50)
-            
-                
-                
-                
-            }.cornerRadius(15).frame(width:360, height:50)
             
             
             
-           
-            
-        }.background(Color.white)
-        .navigationBarTitle("Cat HP Calculator", displayMode: .inline)
-        
-      
-            
-        }.frame(maxHeight: 800)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
         
     }
     
     
-    
 }
-
-
-
-
-
-
-
 
 
 
@@ -104,3 +108,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+
