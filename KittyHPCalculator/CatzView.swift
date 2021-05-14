@@ -18,13 +18,11 @@ struct CatzView: View {
     
     
     var body: some View {
-        
-        
+
         VStack{
             
             VStack{
-                
-                
+      
                 TextField("Your cat's name:", text: $kittenName)
                     .frame(width: 200, height: 10, alignment:.center)
                     .background(Color.clear)
@@ -36,90 +34,40 @@ struct CatzView: View {
                     .foregroundColor(.gray).padding(.leading, 30).padding(.trailing, 30)
                 
             }
-            
-            
-            
-            
+
             VStack{
                 Text("Choose a Kitten Class:").foregroundColor(.black).font(.headline)
-                
                 Spacer()
-                //for each dentro da VSTACK
-                
-                // ZSTack dentro do for each
-                
-                // ZSTack vai conter 01 retangulo  e um texto
-                
                 ForEach(classList, id: \.self){ classType in
-                    
-                    
-                    
-                    if classType == currentTapped {
+        
+                    ZStack{
                         
+                        Rectangle()
+                            .foregroundColor(classType == currentTapped ? .selectedOrange : .mainOrange)
+                            .cornerRadius(15)
+                            .animation(.default)
+                        Text(classType)
+                            .foregroundColor(.white)
+                            .font(.title2)
                         
-                        Button(action: {
+        
+                    }.onTapGesture {
+                        
+                        if classType == currentTapped {                            currentTapped = nil
                             
-                            currentTapped = nil
-                            
-                            
-                            
-                        }, label: {
-                            ZStack{
-                                
-                                Rectangle().foregroundColor(.selectedOrange).cornerRadius(15)
-                                Text(classType).foregroundColor(.white).font(.title2)
-                                
-                                
-                                
-                                
-                            }
-                        })
-                        
-                        
-                    } else{
-                        
-                        
-                        
-                        
-                        Button(action: {
+                        } else {
                             
                             currentTapped = classType
-                            
-                            
-                        }, label: {
-                            ZStack{
-                                
-                                Rectangle().foregroundColor(.mainOrange).cornerRadius(15)
-                                Text(classType).foregroundColor(.white).font(.title2)
-                                
-                                
-                                
-                                
-                            }
-                        })
-                        
+                        }
                         
                     }
-                    
-                    
-                    
-                    
-                    
+
                 }
-                
-                
-                
-                
-                
-                
+      
             }.padding().padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-            
-            
-            
+
             VStack{
-                
-                
-                
+
                 Text("The age of your cat:").font(.headline)
                 Picker("", selection: $number) {
                     
@@ -128,51 +76,39 @@ struct CatzView: View {
                         Text("\($0)").font(.headline)
                         
                     }.foregroundColor(.strongerOrange)
+  
+                }
+    
+            }
+            
+            VStack{
+                
+                
+                
+                NavigationLink(destination: generalBehaviourView()){
+                    
+                    
+                    
+                    ZStack{
+                        
+                        Rectangle().foregroundColor(.mainOrange).cornerRadius(15)
+                        Text("Meow").foregroundColor(.white).font(.title2)
+                        
+                    }.frame(maxHeight: 50)
+                    
                     
                 }
+            
+                
+                
                 
                 
                 
             }
             
             
-            
-            ZStack{
-                
-                
-                Rectangle()
-                    .foregroundColor(.mainOrange)
-                    .cornerRadius(15)
-                   
-                
-                VStack{
-                    
-                    NavigationLink(destination: generalBehaviourView()){
-                        
-                        Text("Next")
-                        
-                    }
-                    .background(Color.mainOrange)
-                    .foregroundColor(.white)
-                    .font(.title2)
-                    
-                    
-                    
-                    
-                }
-                
-            }.frame(maxHeight: 50)
-            
-            
-            
-            
-            
         }.padding()
-        
-        
-        
-        
-        
+
     }
 }
 

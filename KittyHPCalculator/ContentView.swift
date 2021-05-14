@@ -39,7 +39,6 @@ struct ContentView: View {
                         Spacer()
                         Spacer()
                     }
-                    
                     Spacer()
                     Spacer()
                     Spacer()
@@ -52,12 +51,9 @@ struct ContentView: View {
                     
                     
                 }
-                
-                
+     
                 VStack {
-                    
-                    
-                    
+
                     Group{
                         
                         Spacer()
@@ -72,9 +68,7 @@ struct ContentView: View {
                         Spacer()
                         
                     }
-                    
-                    
-                    
+       
                     NavigationLink(destination: CatzView()){
                         
                         ZStack{
@@ -87,21 +81,14 @@ struct ContentView: View {
                     }.padding(.top, 10).padding(.leading, 10).padding(.trailing, 10)
                     
                 }
-                
-                
-                
+    
             }
-            
-            
-            
+
         }
         
     }
-    
-    
+
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
