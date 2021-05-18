@@ -29,7 +29,7 @@ var vocalizationBehaviours = [GeneralBehaviour(label: "Meow to ask food", status
 
     
 
-func calculateFinalHP(classType:ClassesType, feedingScore: GeneralBehaviour, vocalizationScores: GeneralBehaviour) -> Int {
+func calculateFinalHP(classType:Class, feedingScore: GeneralBehaviour, vocalizationScores: GeneralBehaviour) -> Int {
     
     
    
@@ -92,7 +92,12 @@ let finalScore = classType.baseHp + feedingScore.weight + vocalizationScores.wei
 
 
 
-class ClassesType: Identifiable {
+class Class: Identifiable, Equatable{
+    static func == (lhs: Class, rhs: Class) -> Bool {
+        lhs.classLabel == rhs.classLabel
+        
+    }
+    
    
     let classLabel:String
     let baseHp: Int

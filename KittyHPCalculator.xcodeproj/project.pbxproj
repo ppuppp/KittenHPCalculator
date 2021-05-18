@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7508980C264B9B8D004E13D4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508980B264B9B8D004E13D4 /* LoadingView.swift */; };
 		7508980E264C22FD004E13D4 /* generalBehaviourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7508980D264C22FD004E13D4 /* generalBehaviourView.swift */; };
+		7517FC06265420AC00E00D27 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7517FC04265420AC00E00D27 /* Rubik-Regular.ttf */; };
+		7517FC07265420AC00E00D27 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7517FC05265420AC00E00D27 /* Rubik-Medium.ttf */; };
+		7577FDEC264F2C4200BEE4B6 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7577FDEB264F2C4200BEE4B6 /* ResultView.swift */; };
 		75B0218F264B0F40001BE78E /* KittyHPCalculatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B0218E264B0F40001BE78E /* KittyHPCalculatorApp.swift */; };
 		75B02191264B0F40001BE78E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B02190264B0F40001BE78E /* ContentView.swift */; };
 		75B02193264B0F43001BE78E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75B02192264B0F43001BE78E /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		7508980B264B9B8D004E13D4 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		7508980D264C22FD004E13D4 /* generalBehaviourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generalBehaviourView.swift; sourceTree = "<group>"; };
+		7517FC04265420AC00E00D27 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
+		7517FC05265420AC00E00D27 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Medium.ttf"; sourceTree = "<group>"; };
+		7577FDEB264F2C4200BEE4B6 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		75B0218B264B0F40001BE78E /* KittyHPCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KittyHPCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75B0218E264B0F40001BE78E /* KittyHPCalculatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyHPCalculatorApp.swift; sourceTree = "<group>"; };
 		75B02190264B0F40001BE78E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,8 +72,11 @@
 				7508980B264B9B8D004E13D4 /* LoadingView.swift */,
 				7508980D264C22FD004E13D4 /* generalBehaviourView.swift */,
 				75B324EF264EA2100074F017 /* Math.swift */,
+				7577FDEB264F2C4200BEE4B6 /* ResultView.swift */,
 				75B02192264B0F43001BE78E /* Assets.xcassets */,
 				75B02197264B0F43001BE78E /* Info.plist */,
+				7517FC05265420AC00E00D27 /* Rubik-Medium.ttf */,
+				7517FC04265420AC00E00D27 /* Rubik-Regular.ttf */,
 				75B02194264B0F43001BE78E /* Preview Content */,
 			);
 			path = KittyHPCalculator;
@@ -139,7 +148,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				75B02196264B0F43001BE78E /* Preview Assets.xcassets in Resources */,
+				7517FC06265420AC00E00D27 /* Rubik-Regular.ttf in Resources */,
 				75B02193264B0F43001BE78E /* Assets.xcassets in Resources */,
+				7517FC07265420AC00E00D27 /* Rubik-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +166,7 @@
 				7508980E264C22FD004E13D4 /* generalBehaviourView.swift in Sources */,
 				75B0219E264B159E001BE78E /* CatzView.swift in Sources */,
 				75B0218F264B0F40001BE78E /* KittyHPCalculatorApp.swift in Sources */,
+				7577FDEC264F2C4200BEE4B6 /* ResultView.swift in Sources */,
 				75B324F0264EA2100074F017 /* Math.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

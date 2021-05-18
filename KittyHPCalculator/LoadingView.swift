@@ -9,12 +9,19 @@ import SwiftUI
 
 struct LoadingView: View {
     
+    let userScore: Int
+    let generalScore: Int
+    let catName: String
+    let catClass: String
+    
+    
     @State var progressToggle = false
     @State var progressRingEndingValue: CGFloat = 1
 
        var ringColor: Color = Color.mainOrange
        var ringWidth: CGFloat = 15
        var ringSize: CGFloat = 100
+    
     
     @State private var isLoading = false
     
@@ -54,7 +61,7 @@ struct LoadingView: View {
 
 struct LoadingView_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingView()
+        LoadingView(userScore: 5, generalScore: 5, catName: "Jorge", catClass: "maguinho")
     }
 }
 }

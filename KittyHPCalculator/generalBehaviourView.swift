@@ -17,116 +17,158 @@ public protocol ToggleStyle {
 
 struct generalBehaviourView: View {
     
-    @State var classList = [ "⚛︎ Mage ⚛︎", "♰ Cleric ♰", "⚔︎ Paladin ⚔︎", "⚒︎ Tanker ⚒︎"]
+    
    
     
     @State var feedingBehaviours = [GeneralBehaviour(label: "Eats normal cat food", status: false, weight: 1),
                                  GeneralBehaviour(label: "Hunts insects", status: false, weight: 2),
-                                 GeneralBehaviour(label: "Hunts birds", status: false, weight: 2),
                                  GeneralBehaviour(label: "Scavenging for food", status: false, weight: 1)]
     
     @State var vocalizationBehaviours = [GeneralBehaviour(label: "Meow to ask food", status: false, weight: 1),
-                                         GeneralBehaviour(label: "Meow when hunting", status: false, weight: 2),
-                                         GeneralBehaviour(label: "Meow when sleeping", status: false, weight: 2),
-                                         GeneralBehaviour(label: "Funny or weird vocalizations", status: false, weight: 1)]
+                                         GeneralBehaviour(label: "Meow when hunting", status: false, weight: 1),
+                                         GeneralBehaviour(label: "Funny or weird vocalizations", status: false, weight: 2)]
     
-    func calculateGeneralScore() -> Int {
-        
-        let feedingScore = feedingBehaviours.filter({$0.status}).map({ 1 * $0.weight }).reduce(0, +)
-        
-        let vocalizationScore = vocalizationBehaviours.filter({$0.status}).map({ 1 * $0.weight }).reduce(0, +)
-        
-        let generalScore = feedingScore + vocalizationScore
-        
-        return generalScore
-        
-        
-    }
+    @State var activitiesBehaviours = [GeneralBehaviour(label: "Jumping to high places", status: false, weight: 2),
+                                         GeneralBehaviour(label: "Scratching stuff", status: false, weight: 1),
+                                         GeneralBehaviour(label: "Scaring the shit out of you", status: false, weight: 2)]
+  
+    
+    
+    let userScore:Int
+    let catName: String
+    let catClass: String
+    
+    @State var topics = [""]
     
     var body: some View {
   
         VStack {
            
+            Spacer()
+            Spacer()
             
-            Text("Toggle the behaviours your cat does:").font(.title3).bold()
+            Text("Toggle the behaviours your cat does:").font(Font.custom("Rubik-Medium", size:20))
             
            
-//
-            
-            List {
-                Section(header:
-                    HStack {
-                        Text("Feeding")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxHeight: 30)
+                
+                
+                VStack{
+                
+                List {
+                    Section(header:
+                        HStack {
+                            Text("Feeding")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxHeight: 30)
 
-                        Spacer()
-                        
-                       
-                     }.background(Color.mainOrange)
-                     .listRowInsets(EdgeInsets(
-                        top: 0,
-                        leading: 0,
-                        bottom: 0,
-                        trailing: 0))
-                    ){
-                    ForEach(feedingBehaviours.indices){index in
-                        
-                        Toggle(self.feedingBehaviours[index].label, isOn: self.$feedingBehaviours[index].status)
-                            .font(.body)
-                            .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
+                            Spacer()
                             
-                         
-                        
-                        
+                           
+                         }.background(Color.mainOrange)
+                         .listRowInsets(EdgeInsets(
+                            top: 0,
+                            leading: 0,
+                            bottom: 0,
+                            trailing: 0))
+                        ){
+                        ForEach(feedingBehaviours.indices){index in
+                            
+                            Toggle(self.feedingBehaviours[index].label, isOn: self.$feedingBehaviours[index].status)
+                                .font(Font.custom("Rubik-Regular", size:18))
+                                .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
+                                
+                             
+                            
+                            
+                        }
+                            
                     }
-                        
                 }
-            }
-        
             
-            List {
-                Section(header:
-                    HStack {
-                        Text("Vocalizations")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxHeight: 30)
+                   
+                    
+                
+                List {
+                    Section(header:
+                        HStack {
+                            Text("Vocalizations")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding(.leading, 20)
+                                .frame(maxHeight: 30)
 
-                        Spacer()
-                        
-                       
-                     }.background(Color.mainOrange)
-                     .listRowInsets(EdgeInsets(
-                        top: 0,
-                        leading: 0,
-                        bottom: 0,
-                        trailing: 0))
-                    ){
-                    ForEach(vocalizationBehaviours.indices){index in
-                        
-                        Toggle(self.vocalizationBehaviours[index].label, isOn: self.$vocalizationBehaviours[index].status)
-                            .font(.body)
-                            .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
-                       
-                        
+                            Spacer()
+                            
+                           
+                         }.background(Color.mainOrange)
+                         .listRowInsets(EdgeInsets(
+                            top: 0,
+                            leading: 0,
+                            bottom: 0,
+                            trailing: 0))
+                        ){
+                        ForEach(vocalizationBehaviours.indices){index in
+                            
+                            Toggle(self.vocalizationBehaviours[index].label, isOn: self.$vocalizationBehaviours[index].status)
+                                .font(Font.custom("Rubik-Regular", size:18))
+                                .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
+                           
+                            
+                        }
+                            
+                    
                     }
-                        
+                    
                 }
-            }
-            
-            
+                
+                
+                    
+                    
+                List {
+                Section(header:
+                        HStack {
+                            Text("Activities")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding(.leading, 20)
+                                .frame(maxHeight: 30)
+
+                            Spacer()
+                            
+                           
+                         }.background(Color.mainOrange)
+                         .listRowInsets(EdgeInsets(
+                            top: 0,
+                            leading: 0,
+                            bottom: 0,
+                            trailing: 0))
+                        ){
+                        ForEach(activitiesBehaviours.indices){index in
+                            
+                            Toggle(self.activitiesBehaviours[index].label, isOn: self.$activitiesBehaviours[index].status)
+                                .font(Font.custom("Rubik-Regular", size:18))
+                                .toggleStyle(SwitchToggleStyle(tint: Color.strongerOrange))
+                           
+                            
+                        }
+                            
+                    
+                }
+                
+                }
+                    
+            }.padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/).navigationBarTitle("", displayMode: .inline)
+
             VStack{
             
-                NavigationLink(destination: generalBehaviourView()){
+                NavigationLink(destination: ResultView(userScore: userScore, generalScore: calculateGeneralScore(), catName: catName, catClass: catClass)){
                     
                     ZStack{
                         
                         Rectangle().foregroundColor(.mainOrange).cornerRadius(15)
-                        Text("Meow").foregroundColor(.white).font(.title2)
+                        Text("Calculate").foregroundColor(.white).font(Font.custom("Rubik-Regular", size:20))
                         
                     }.frame(maxHeight: 50)
                     
@@ -135,40 +177,38 @@ struct generalBehaviourView: View {
         
                 
             }.padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+            
                 
-        }.padding(.top, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
-        
-        
-    
-        
-    
-    
-    
-    
-    
+            }
+//
+            
+            
     }
 }
 
+
+func calculateGeneralScore() -> Int {
+    
+    let feedingScore = feedingBehaviours.filter({$0.status}).map({ 1 * $0.weight }).reduce(0, +)
+    
+    let vocalizationScore = vocalizationBehaviours.filter({$0.status}).map({ 1 * $0.weight }).reduce(0, +)
+    
+    let generalScore = feedingScore + vocalizationScore
+    
+    return generalScore
+    
+    
+}
 
 
 struct generalBehaviourView_Previews: PreviewProvider {
     static var previews: some View {
-        generalBehaviourView()
+        Group {
+            generalBehaviourView(userScore: 5, catName: "Jorge", catClass: "maguinho")
+                .preferredColorScheme(.light)
+            generalBehaviourView(userScore: 7, catName: "Jorge", catClass: "maguinho")
+        }
     }
 }
 
 
-//class GeneralBehaviour: Identifiable {
-//    
-//    let label: String
-//    var status: Bool
-//    let id = UUID()
-//    let weight: Int
-//    
-//    internal init(label: String, status: Bool, weight: Int) {
-//        self.label = label
-//        self.status = status
-//        self.weight = weight
-//    }
-//    
-//}

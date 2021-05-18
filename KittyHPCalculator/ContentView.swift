@@ -17,7 +17,7 @@ extension Color {
 
 struct ContentView: View {
     
-    @State var isShowingCatzView = false
+   
     
     
     var body: some View {
@@ -28,26 +28,12 @@ struct ContentView: View {
                 
                 VStack{
                     
-                    Group{
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                    }
-                    Spacer()
-                    Spacer()
-                    Spacer()
-                    
+               
+                  
                     Image("kittyHome")
                     
                     Spacer()
-                    Spacer()
-                    Spacer()
+                   
                     
                     
                 }
@@ -56,16 +42,7 @@ struct ContentView: View {
 
                     Group{
                         
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
-                        Spacer()
+                  
                         
                     }
        
@@ -74,17 +51,19 @@ struct ContentView: View {
                         ZStack{
                             
                             Rectangle().foregroundColor(.mainOrange).cornerRadius(15)
-                            Text("Meow").foregroundColor(.white).font(.title2)
+                            Text("Meow").foregroundColor(.white).font(Font.custom("Rubik-Regular", size:20))
                             
                         }.frame(maxHeight: 50)
                         
-                    }.padding(.top, 10).padding(.leading, 10).padding(.trailing, 10)
+                    }.padding(.leading, 20).padding(.trailing, 20)
                     
-                }
+                    
+                    
+                }.padding(.bottom, /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     
             }
 
-        }
+        }.navigationBarTitle("", displayMode: .inline)
         
     }
 
